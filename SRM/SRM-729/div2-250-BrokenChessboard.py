@@ -11,14 +11,6 @@ class BrokenChessboard():
 
     def mininumFixes(self, board):
 
-        def bestRowWithMinimuFixes(board):
-
-            for i in range(len(board)):
-
-
-
-        boardBeginsWith = board[0][0]
-
         def getSquareColor(x, y, boardBeginsWith):
 
             firstRowBeginsWith = boardBeginsWith
@@ -30,15 +22,20 @@ class BrokenChessboard():
             return rowBeginsWith if y % 2 == 0 else rowSecondColor
 
 
-        neededChanges = 0
+        neededChanges1 = 0
+        neededChanges2 = 0
         for i in range(len(board)):
             for j in range(len(board[0])):
 
-                expectedColor = getSquareColor(i, j, boardBeginsWith)
+                expectedColor = getSquareColor(i, j, 'W')
                 if board[i][j] != expectedColor:
-                    neededChanges += 1
+                    neededChanges1 += 1
+
+                expectedColor = getSquareColor(i, j, 'B')
+                if board[i][j] != expectedColor:
+                    neededChanges2 += 1
 
 
-        return neededChanges
+        return min(neededChanges1, neededChanges2)
 
 
