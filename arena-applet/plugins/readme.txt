@@ -1,0 +1,1 @@
+https://www.topcoder.com/tc?module=Static&d1=applet&d2=plugins
